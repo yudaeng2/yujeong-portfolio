@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FAFAF8">
+<title>Yujeong Je — Portfolio</title>
+<meta name="description" content="복잡한 업무를 더 단순하게. Yujeong Je의 업무 자율화 포트폴리오.">
+<!-- 온라인에서는 Pretendard CDN을 사용하고, 오프라인에서는 시스템 글꼴로 대체합니다. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--ink:#111111;--muted:#111111a8;--accent:#8C8279;--line:#E4E2DD;--glass:#FAFAF8df;--max:1200px;--gutter:clamp(24px,5vw,72px);--section:140px;--radius:8px;--ease:.25s ease;--shadow:0 8px 28px #1111110d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:400;line-height:1.75;-webkit-font-smoothing:antialiased}
+body.dark{--bg:#111111;--surface:#191919;--ink:#FAFAF8;--muted:#FAFAF8b0;--accent:#B6AAA0;--line:#FAFAF82b;--glass:#111111df;--shadow:0 8px 28px #00000030}
+button,input,textarea{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - var(--gutter)*2));margin-inline:auto}
+.section{padding-block:var(--section)}
+.section-top{padding-top:62px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--accent);line-height:1.4;margin:0 0 18px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.035em;font-weight:700}
+h2{font-size:clamp(32px,4vw,56px);margin-bottom:24px}
+h3{font-size:clamp(22px,2vw,28px);margin-bottom:14px}
+p{font-size:17px;line-height:1.75;max-width:64ch}
+.small{font-size:13px;line-height:1.65;color:var(--muted)}
+header{position:fixed;inset:0 0 auto;z-index:30;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:15px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,3vw,38px)}
+.nav-links button,.nav-tools button{border:0;background:none;padding:8px 0;font-size:13px;font-weight:600;transition:color var(--ease)}
+.nav-links button:hover,.nav-tools button:hover{color:var(--accent)}
+.nav-links button[aria-current="page"]{color:var(--accent)}
+.nav-tools{display:flex;align-items:center;gap:18px}
+.icon-btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line)!important;border-radius:var(--radius);padding:0!important}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.menu-toggle{display:none}
+main{padding-top:76px;min-height:calc(100vh - 80px)}
+.page{display:none;animation:pageIn .35s ease}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:calc(100vh - 76px);position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#292827;color:#FAFAF8;border-radius:0 0 var(--radius) var(--radius)}
+/* 히어로 이미지 교체: .hero의 background-image에 이미지 URL을 넣거나, 아래 placeholder 배경을 교체하세요. */
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111111b8 0%,#11111145 48%,#11111110 100%),linear-gradient(0deg,#1111118c 0%,transparent 65%),linear-gradient(135deg,#292827,#4b4743 55%,#222222)}
+.hero:after{content:"IMAGE 1920×1080";position:absolute;right:var(--gutter);top:42%;font-size:11px;letter-spacing:.18em;color:#FAFAF86b}
+.hero-inner{position:relative;z-index:1;width:min(var(--max),calc(100% - var(--gutter)*2));margin:0 auto;padding:90px 0 86px}
+.hero .eyebrow{color:#FAFAF8b8}
+.hero h1{font-size:clamp(40px,6vw,88px);font-weight:700;letter-spacing:-.03em;max-width:900px;margin-bottom:24px}
+.hero p{font-size:17px;max-width:540px;color:#FAFAF8d9;margin-bottom:32px}
+.button-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{height:52px;padding:0 23px;border:1px solid var(--ink);border-radius:var(--radius);display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:13px;font-weight:700;transition:background var(--ease),color var(--ease),border-color var(--ease);background:var(--ink);color:var(--bg)}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.outline{background:transparent;color:var(--ink)}
+.btn.outline:hover{background:var(--ink);color:var(--bg)}
+.hero .btn{background:#FAFAF8;color:#111;border-color:#FAFAF8}
+.hero .btn:hover{background:transparent;color:#FAFAF8}
+.hero .btn.outline{background:transparent;color:#FAFAF8;border-color:#FAFAF8a6}
+.hero .btn.outline:hover{background:#FAFAF8;color:#111}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px}
+.section-head p{max-width:430px;margin-bottom:5px}
+.strength-list{border-top:1px solid var(--line)}
+.strength{display:grid;grid-template-columns:100px minmax(220px,4fr) minmax(240px,5fr);gap:28px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start}
+.strength-num{font-size:14px;color:var(--accent);font-weight:700;padding-top:7px}
+.strength h3{margin:0}
+.strength p{font-size:15px;margin:0;color:var(--muted);max-width:52ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:32px 26px 34px 0;border-right:1px solid var(--line)}
+.stat:not(:first-child){padding-left:26px}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font-size:clamp(38px,5vw,64px);letter-spacing:-.05em;line-height:1.15;color:var(--accent);font-weight:700}
+.stat span{display:block;font-size:14px;font-weight:600;margin-top:14px}
+.stat small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.notice-list{border-top:1px solid var(--line)}
+.notice-row{display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.notice-row .date{font-size:12px;color:var(--muted)}
+.notice-row button{background:none;border:0;text-align:left;font-weight:600;padding:0}
+.notice-row button:hover{color:var(--accent)}
+.tag{font-size:11px;letter-spacing:.04em;color:var(--accent);border:1px solid var(--line);padding:3px 8px;border-radius:4px;white-space:nowrap}
+.split{display:grid;grid-template-columns:5fr 7fr;gap:clamp(34px,7vw,100px);align-items:center}
+.split.reverse{grid-template-columns:7fr 5fr}
+.split.reverse .visual{order:2}
+.visual{aspect-ratio:4/5;background:linear-gradient(145deg,#e5e2dd,#b9b2aa 60%,#77716b);border-radius:var(--radius);position:relative;overflow:hidden;display:grid;place-items:center}
+.visual.wide{aspect-ratio:16/10}
+.visual:after{content:attr(data-label);font-size:11px;letter-spacing:.16em;color:#11111190}
+.visual:hover{cursor:default}
+.visual:hover:before{transform:scale(1.03)}
+.visual:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#1111110a,#11111126);transition:transform .6s ease}
+.copy-block p{color:var(--muted)}
+.timeline{border-top:1px solid var(--line)}
+.timeline-item{display:grid;grid-template-columns:150px 1fr;gap:30px;padding:25px 0;border-bottom:1px solid var(--line)}
+.timeline-item time{color:var(--accent);font-size:14px;font-weight:700}
+.timeline-item p{margin:0;color:var(--muted);font-size:15px}
+.value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 50px;border-top:1px solid var(--line)}
+.value-item{padding:27px 0;border-bottom:1px solid var(--line)}
+.value-item p{font-size:15px;color:var(--muted);margin-bottom:0}
+.job-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;border-top:1px solid var(--line)}
+.job{padding:28px 0;border-bottom:1px solid var(--line)}
+.job .meta{font-size:12px;color:var(--accent);letter-spacing:.1em;margin-bottom:12px}
+.job p{font-size:15px;color:var(--muted);margin-bottom:16px}
+.blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 28px}
+.blog-card{border-bottom:1px solid var(--line);padding-bottom:25px;min-width:0}
+.blog-card .visual{aspect-ratio:16/10;margin-bottom:22px}
+.blog-card .date{font-size:12px;color:var(--muted);margin-bottom:10px}
+.blog-card h3{font-size:clamp(21px,2.5vw,30px)}
+.blog-card p{font-size:15px;color:var(--muted);margin-bottom:18px}
+.text-link{border:0;background:none;padding:0;font-size:13px;font-weight:700;color:var(--accent);display:inline-flex;align-items:center;gap:9px}
+.text-link:hover{gap:14px}
+.back-row{padding:28px 0 0}
+.back-btn{border:0;background:none;padding:8px 0;font-size:13px;font-weight:600;color:var(--muted)}
+.back-btn:hover{color:var(--accent)}
+.detail-body{max-width:760px}
+.detail-body p{color:var(--muted)}
+.detail-body h3{margin-top:38px}
+.search-wrap{position:relative}
+.search-input{width:min(240px,25vw);height:38px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);padding:0 12px;font-size:12px}
+.search-results{position:absolute;top:46px;right:0;width:min(340px,85vw);max-height:360px;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:none;z-index:40}
+.search-results.open{display:block}
+.search-result{display:block;width:100%;text-align:left;padding:13px 15px;border:0;border-bottom:1px solid var(--line);background:transparent;font-size:13px}
+.search-result:last-child{border-bottom:0}
+.search-result:hover{background:var(--bg)}
+.search-result small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+footer{border-top:1px solid var(--line);padding:34px 0 28px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.footer-email{font-size:12px;color:var(--muted)}
+.footer-note{font-size:11px;color:var(--muted)}
+.floating-contact{position:fixed;right:24px;bottom:24px;z-index:25;width:56px;height:56px;border:1px solid var(--ink);border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;box-shadow:var(--shadow);transition:transform var(--ease)}
+.floating-contact:hover{transform:translateY(-3px)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:100;background:var(--ink);color:var(--bg);border-radius:var(--radius);padding:12px 18px;font-size:13px;transition:opacity .25s,transform .25s;max-width:calc(100% - 40px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal-backdrop{position:fixed;inset:0;z-index:60;background:#11111170;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-backdrop.open{display:flex}
+.modal{width:min(560px,100%);max-height:85vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,5vw,42px);color:var(--ink)}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.modal-head h2{font-size:30px}
+.close-btn{background:none;border:1px solid var(--line);border-radius:var(--radius);width:36px;height:36px;display:grid;place-items:center;flex:0 0 auto}
+.form-field{display:grid;gap:7px;margin:17px 0}
+.form-field label{font-size:12px;font-weight:700}
+.form-field input,.form-field textarea{width:100%;border:1px solid var(--line);border-radius:var(--radius);padding:12px;background:var(--bg);color:var(--ink);font-size:14px}
+.form-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.demo-box{padding:16px;border:1px solid var(--line);border-radius:var(--radius);margin:20px 0}
+.demo-box p{font-size:13px;margin:0;color:var(--muted)}
+.admin-panel{margin-top:28px;padding:22px;border:1px solid var(--line);border-radius:var(--radius)}
+.admin-panel h3{font-size:20px}
+.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.admin-actions .btn{height:42px;padding-inline:15px}
+.pinned{color:var(--accent);font-size:11px;font-weight:700;margin-right:8px}
+.hidden{display:none!important}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){:root{--section:96px}.nav-wrap{height:70px}.nav-links{gap:16px}.nav-tools{gap:10px}.search-input{width:160px}.strength{grid-template-columns:60px 1fr 1.2fr;gap:18px}.split,.split.reverse{gap:34px}.timeline-item{grid-template-columns:110px 1fr}}
+@media(max-width:680px){:root{--section:72px;--gutter:24px}main{padding-top:70px}.nav-wrap{height:70px;gap:10px}.brand{font-size:13px}.menu-toggle{display:grid}.nav-links{display:none;position:absolute;top:70px;left:0;right:0;padding:18px var(--gutter) 22px;background:var(--glass);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:12px}.nav-links.open{display:flex}.nav-links button{font-size:15px}.nav-tools{margin-left:auto;gap:8px}.search-wrap{display:none}.hero{min-height:calc(100svh - 70px)}.hero-inner{padding:65px 0 54px}.hero h1{font-size:clamp(40px,11vw,58px)}.hero p{font-size:15px}.section-head{display:block;margin-bottom:32px}.section-head p{margin-top:18px}.strength{grid-template-columns:38px 1fr;gap:10px 16px;padding:24px 0}.strength p{grid-column:2;font-size:14px}.stats{grid-template-columns:1fr}.stat,.stat:not(:first-child){padding:23px 0;border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.stat strong{font-size:44px}.notice-row{grid-template-columns:76px 1fr;gap:10px 14px}.notice-row .tag{grid-column:2;justify-self:start}.split,.split.reverse{grid-template-columns:1fr;gap:28px}.split.reverse .visual{order:0}.visual{max-height:520px}.timeline-item{grid-template-columns:78px 1fr;gap:16px}.timeline-item p{font-size:14px}.value-grid,.job-grid,.blog-grid{grid-template-columns:1fr;gap:0}.blog-grid{gap:30px}.blog-card .visual{aspect-ratio:16/10}.back-row{padding-top:20px}.footer-inner{align-items:flex-start;flex-direction:column;gap:8px}.floating-contact{width:50px;height:50px;right:16px;bottom:16px}.modal{padding:24px}.modal-head h2{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav-wrap">
+    <a class="brand" href="#home" data-page="home" aria-label="Yujeong Je 홈">Yujeong Je — portfolio</a>
+    <nav class="nav-links" id="navLinks" aria-label="주 메뉴">
+      <button data-page="home" aria-current="page">홈</button>
+      <button data-page="about">회사소개</button>
+      <button data-page="careers">채용</button>
+      <button data-page="news">블로그·소식</button>
+    </nav>
+    <div class="nav-tools">
+      <div class="search-wrap">
+        <input class="search-input" id="siteSearch" type="search" placeholder="공지·글 검색" aria-label="공지 및 글 검색" autocomplete="off">
+        <div class="search-results" id="searchResults" role="listbox"></div>
+      </div>
+      <button class="icon-btn" id="themeToggle" aria-label="라이트/다크 모드 전환" title="테마 전환">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn" id="accountButton" aria-label="로그인 및 회원 메뉴" title="계정">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page active" id="page-home" data-page-name="home">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Independent work · Thoughtful automation</p>
+      <h1>반복되는 일은 줄이고,<br>중요한 일에 집중합니다.</h1>
+      <p>업무 자율화 강점 인재. 복잡한 절차를 살펴보고, 작은 코드와 명확한 흐름으로 더 나은 일의 방식을 만듭니다.</p>
+      <div class="button-row">
+        <button class="btn" data-page="about">작업 방식 알아보기 <svg viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+        <button class="btn outline" data-page="news">최근 기록 보기</button>
+      </div>
+    </div>
+  </div>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">What I do</p><h2>복잡한 업무를<br>단순한 흐름으로.</h2></div><p>현장의 불편을 관찰하고, 반복 작업을 찾아내고, 바로 활용할 수 있는 도구로 연결합니다.</p></div>
+    <div class="strength-list reveal">
+      <article class="strength"><span class="strength-num">01 /</span><h3>업무를 구조화합니다</h3><p>흩어진 자료와 절차를 단계별로 정리합니다. 무엇이 반복되고 어디서 시간이 소요되는지 먼저 확인합니다.</p></article>
+      <article class="strength"><span class="strength-num">02 /</span><h3>작은 자동화를 설계합니다</h3><p>문서 정리, 데이터 가공, 보고 흐름 등 실무에서 자주 마주치는 일을 코드와 도구로 간결하게 만듭니다.</p></article>
+      <article class="strength"><span class="strength-num">03 /</span><h3>사용하는 사람을 생각합니다</h3><p>기능 자체보다 실제 사용성을 우선합니다. 설명이 쉽고, 수정이 가능하며, 다음 담당자에게 이어지는 결과물을 지향합니다.</p></article>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">At a glance</p><h2>작업을 숫자로 보다.</h2></div><p>현재 포트폴리오 시연을 위한 샘플 지표입니다. 실제 프로젝트 실적이 생기면 수치와 근거를 함께 업데이트하세요.</p></div>
+    <div class="stats reveal">
+      <div class="stat"><strong>03</strong><span>업무 개선 관점</span><small>분석 · 자동화 · 사용성</small></div>
+      <div class="stat"><strong>04</strong><span>등록된 공지</span><small>데모 데이터 기준</small></div>
+      <div class="stat"><strong>01</strong><span>목표</span><small>반복 업무를 줄이는 실용적 변화</small></div>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">Latest updates</p><h2>최근 공지</h2></div><button class="text-link" data-page="news">전체 소식 보기 <svg viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+    <div class="notice-list reveal" id="homeNotices"></div>
+  </section>
+</section>
+
+<section class="page" id="page-about" data-page-name="about">
+  <div class="container back-row"><button class="back-btn" data-back>← 이전으로</button></div>
+  <section class="section container section-top">
+    <div class="split reveal">
+      <div class="visual" data-label="WORK IN PROGRESS · 4:5" aria-label="작업 공간 이미지 자리"></div>
+      <div class="copy-block"><p class="eyebrow">About Yujeong</p><h2>좋은 자동화는<br>사람을 더 잘 일하게 합니다.</h2><p>안녕하세요. Yujeong Je입니다. 저는 일을 무조건 빠르게 처리하는 것보다, 왜 복잡해졌는지 이해하고 다시 단순하게 설계하는 과정에 관심이 있습니다.</p><p>반복되는 절차를 관찰하고, 필요한 도구를 연결해 누구나 이해하고 이어서 사용할 수 있는 결과물을 만드는 것이 제 작업의 기준입니다.</p><p class="small">※ 본 사이트는 개인 포트폴리오 데모이며, 소개 문구와 수치는 실제 경험에 맞게 수정할 수 있습니다.</p></div>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">Milestones</p><h2>작은 개선을<br>꾸준히 쌓습니다.</h2></div><p>현재는 포트폴리오 데모용 연혁입니다. 실제 이력과 프로젝트를 기준으로 수정해 주세요.</p></div>
+    <div class="timeline reveal">
+      <div class="timeline-item"><time>2026 — 현재</time><div><h3>업무 자동화 포트폴리오 구축</h3><p>업무 흐름을 정리하고, 단일 HTML 기반의 인터랙티브 웹 포트폴리오를 제작합니다.</p></div></div>
+      <div class="timeline-item"><time>프로젝트 단계</time><div><h3>문제 정의부터 결과물까지</h3><p>작업 목적, 사용자의 불편, 적용할 수 있는 도구를 한 흐름으로 정리하는 연습을 이어갑니다.</p></div></div>
+      <div class="timeline-item"><time>앞으로</time><div><h3>현장에 남는 자동화</h3><p>실제 업무 환경에서 검증 가능한 개선 사례를 만들고, 결과와 한계를 투명하게 기록합니다.</p></div></div>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">Vision</p><h2>기술보다 먼저,<br>일하는 사람을 봅니다.</h2></div></div>
+    <div class="value-grid reveal">
+      <article class="value-item"><h3>명확함</h3><p>무엇을 자동화하고 무엇은 사람이 판단해야 하는지 구분합니다.</p></article>
+      <article class="value-item"><h3>지속 가능성</h3><p>특정 사람만 이해하는 방식이 아니라, 설명하고 유지할 수 있는 결과를 만듭니다.</p></article>
+      <article class="value-item"><h3>보안과 책임</h3><p>민감한 정보는 최소한으로 다루고, 실제 환경에서는 권한과 기록을 고려합니다.</p></article>
+      <article class="value-item"><h3>실용성</h3><p>멋진 기능보다 현장에서 실제로 시간을 아끼는 작은 개선을 우선합니다.</p></article>
+    </div>
+  </section>
+</section>
+
+<section class="page" id="page-careers" data-page-name="careers">
+  <div class="container back-row"><button class="back-btn" data-back>← 이전으로</button></div>
+  <section class="section container section-top">
+    <div class="section-head reveal"><div><p class="eyebrow">Careers & collaboration</p><h2>좋은 질문을 함께<br>해결할 동료를 찾습니다.</h2></div><p>현재는 협업 방향을 소개하는 데모 페이지입니다. 실제 채용 공고가 아니라 프로젝트 협업 제안으로 활용할 수 있습니다.</p></div>
+    <div class="split reverse reveal">
+      <div class="visual wide" data-label="COLLABORATION · 16:10" aria-label="협업 이미지 자리"></div>
+      <div class="copy-block"><p class="eyebrow">The right mindset</p><h2>우리가 중요하게 보는 것</h2><p>모든 문제에 복잡한 기술이 필요한 것은 아닙니다. 현장을 관찰하고, 원인을 질문하고, 작게 실험한 뒤 결과를 확인하는 태도를 중요하게 생각합니다.</p><p>정답을 빠르게 말하는 사람보다, 더 나은 질문을 만들고 배운 것을 기록하는 사람과 함께하고 싶습니다.</p></div>
+    </div>
+  </section>
+  <section class="section container">
+    <div class="section-head reveal"><div><p class="eyebrow">Open fields</p><h2>함께할 수 있는 분야</h2></div></div>
+    <div class="job-grid reveal">
+      <article class="job"><p class="meta">01 / WORKFLOW</p><h3>업무 프로세스 분석</h3><p>반복 업무를 관찰하고 현재 절차, 병목, 개선 기회를 문서화합니다.</p><button class="text-link apply-btn" data-role="업무 프로세스 분석">관심 분야로 문의하기 →</button></article>
+      <article class="job"><p class="meta">02 / AUTOMATION</p><h3>업무 자동화 도구 제작</h3><p>데이터 정리, 반복 입력, 파일 처리처럼 작은 자동화가 유용한 과제를 다룹니다.</p><button class="text-link apply-btn" data-role="업무 자동화 도구 제작">관심 분야로 문의하기 →</button></article>
+      <article class="job"><p class="meta">03 / CONTENT</p><h3>문서·콘텐츠 구조화</h3><p>정보를 읽기 쉽게 정리하고, 재사용 가능한 문서와 콘텐츠 구조를 설계합니다.</p><button class="text-link apply-btn" data-role="문서·콘텐츠 구조화">관심 분야로 문의하기 →</button></article>
+      <article class="job"><p class="meta">04 / PUBLIC SERVICE</p><h3>공공 업무 효율화 아이디어</h3><p>공공기관의 업무 맥락과 개인정보·접근 권한을 고려해 개선 아이디어를 정리합니다.</p><button class="text-link apply-btn" data-role="공공 업무 효율화 아이디어">관심 분야로 문의하기 →</button></article>
+    </div>
+    <div class="admin-panel reveal"><p class="eyebrow">How to apply</p><h3>지원 및 협업 제안</h3><p class="small">관심 분야와 해결하고 싶은 문제를 간단히 적어 주세요. 아래 버튼은 메일 앱을 여는 데모 동작입니다.</p><button class="btn" id="emailApply">협업 제안 메일 작성</button></div>
+  </section>
+</section>
+
+<section class="page" id="page-news" data-page-name="news">
+  <div class="container back-row"><button class="back-btn" data-back>← 이전으로</button></div>
+  <section class="section container section-top">
+    <div class="section-head reveal"><div><p class="eyebrow">Journal & notices</p><h2>작업의 과정과<br>변화를 기록합니다.</h2></div><p>업무 자동화 관점, 실험 기록, 사이트 공지를 모았습니다. 제목을 선택하면 상세 내용을 볼 수 있습니다.</p></div>
+    <div class="notice-list reveal" id="allNotices"></div>
+    <div class="section-head reveal" style="margin-top:90px"><div><p class="eyebrow">Notes</p><h2>생각과 작업 노트</h2></div><p>문제를 정의하고 개선하는 과정을 짧은 글로 정리합니다.</p></div>
+    <div class="blog-grid reveal" id="blogGrid"></div>
+    <div class="admin-panel reveal" id="memberPanel"><p class="eyebrow">Member area</p><h3>데모 회원 공간</h3><p class="small" id="memberStatus">로그인하면 회원 전용 안내와 공지 관리 데모를 확인할 수 있습니다.</p><div class="admin-actions"><button class="btn" id="loginOpen">로그인 / 체험 계정</button><button class="btn outline" id="signupOpen">회원가입</button><button class="btn outline" id="resetDemo">데모 초기화</button></div><div id="adminTools" class="hidden"><hr style="border:0;border-top:1px solid var(--line);margin:24px 0"><h3>공지 관리 데모</h3><p class="small">아래 기능은 현재 브라우저에만 저장됩니다. 실제 서비스의 서버 게시판이 아닙니다.</p><div class="form-field"><label for="newNoticeTitle">공지 제목</label><input id="newNoticeTitle" maxlength="90" placeholder="예: 새 프로젝트 기록"></div><div class="form-field"><label for="newNoticeBody">공지 내용</label><textarea id="newNoticeBody" rows="3" maxlength="600" placeholder="공지 내용을 입력하세요."></textarea></div><label style="font-size:13px"><input id="pinNotice" type="checkbox"> 희망직무 공지로 상단 고정</label><div class="admin-actions"><button class="btn" id="addNotice">공지 등록</button><button class="btn outline" id="logoutButton">로그아웃</button></div><div class="admin-actions"><button class="btn outline" id="resetDemo2">데모 초기화</button></div></div></div>
+  </section>
+</section>
+
+<section class="page" id="page-article" data-page-name="article">
+  <div class="container back-row"><button class="back-btn" data-back>← 이전으로</button></div>
+  <article class="section container section-top">
+    <p class="eyebrow" id="articleCategory">Journal</p><h1 id="articleTitle" style="font-size:clamp(36px,5vw,66px);max-width:900px">글 제목</h1><p class="small" id="articleDate"></p>
+    <div class="visual wide" data-label="EDITORIAL IMAGE · 16:10" style="margin:44px 0"></div>
+    <div class="detail-body" id="articleBody"></div>
+  </article>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner"><div><a class="brand" href="#home" data-page="home">Yujeong Je — portfolio</a><div class="footer-note">복잡한 업무를 단순한 흐름으로.</div></div><a class="footer-email" href="mailto:esabelllla0618@gmail.com">esabelllla0618@gmail.com</a></div>
+</footer>
+<!-- 카카오톡 채널 연결 위치: 아래 href의 https://pf.kakao.com/_YOUR_CHANNEL 을 실제 채널 URL로 교체하세요. -->
+<a class="floating-contact" id="contactButton" href="mailto:esabelllla0618@gmail.com?subject=%5B%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%20%EB%AC%B8%EC%9D%98%5D" aria-label="상담 문의">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.7 8.7 0 0 1-3.4-.7L4 20l1.5-4A7.2 7.2 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/></svg>
+</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+  <div class="modal">
+    <div class="modal-head"><div><p class="eyebrow">Account</p><h2 id="accountTitle">계정으로 시작하기</h2></div><button class="close-btn" data-close-modal aria-label="닫기"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+    <div class="demo-box"><p><strong>발표용 체험 계정</strong><br>버튼 한 번으로 로그인됩니다. 입력 없이 바로 시연할 수 있습니다.</p><div class="form-actions"><button class="btn" id="demoLogin">체험 계정 자동 로그인</button></div></div>
+    <div id="authForms">
+      <form id="loginForm">
+        <h3>로그인</h3>
+        <div class="form-field"><label for="loginId">이메일</label><input id="loginId" type="email" required placeholder="demo@example.com"></div>
+        <div class="form-field"><label for="loginPw">비밀번호</label><input id="loginPw" type="password" required placeholder="데모 비밀번호"></div>
+        <div class="form-actions"><button class="btn" type="submit">로그인</button><button class="btn outline" type="button" id="showSignup">회원가입으로</button></div>
+      </form>
+      <form id="signupForm" class="hidden">
+        <h3>회원가입</h3>
+        <div class="form-field"><label for="signupName">이름</label><input id="signupName" required maxlength="40" placeholder="이름"></div>
+        <div class="form-field"><label for="signupEmail">이메일</label><input id="signupEmail" type="email" required placeholder="name@example.com"></div>
+        <div class="form-field"><label for="signupPw">비밀번호</label><input id="signupPw" type="password" required minlength="4" placeholder="4자 이상"></div>
+        <div class="form-actions"><button class="btn" type="submit">회원가입 완료</button><button class="btn outline" type="button" id="showLogin">로그인으로</button></div>
+        <p class="small">데모 가입 정보는 이 브라우저에만 저장됩니다. 실제 계정 시스템이 아닙니다.</p>
+      </form>
+    </div>
+    <div id="loggedInView" class="hidden"><p id="loggedInText"></p><div class="form-actions"><button class="btn" id="modalLogout">로그아웃</button><button class="btn outline" data-close-modal>닫기</button></div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $=(s,root=document)=>root.querySelector(s);
+const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
+const STORAGE_KEY='yjPortfolioDemo_v1';
+const defaultNotices=[
+ {id:'n1',date:'2026.10.14',title:'희망직무 및 협업 제안 안내',body:'업무 자동화, 프로세스 분석, 문서 구조화 등 관심 있는 분야를 확인하고 협업을 제안할 수 있습니다. 희망직무 관련 공지는 발표 시연을 위해 상단에 고정되어 있습니다.',pinned:true,category:'NOTICE'},
+ {id:'n2',date:'2026.10.10',title:'포트폴리오 데모 페이지 공개',body:'한 개의 HTML 파일로 동작하는 포트폴리오 데모를 구성했습니다. 반응형 메뉴, 검색, 테마 전환, 회원 기능과 공지 게시판을 시연할 수 있습니다.',pinned:false,category:'UPDATE'},
+ {id:'n3',date:'2026.10.06',title:'업무 자동화 아이디어 기록 시작',body:'반복 입력과 파일 정리처럼 자주 발생하는 업무를 작은 단위로 나누어 개선 기회를 기록합니다. 실제 프로젝트를 진행하면 전후 과정과 검증 결과를 함께 업데이트할 예정입니다.',pinned:false,category:'JOURNAL'},
+ {id:'n4',date:'2026.10.01',title:'협업 문의 방법 안내',body:'협업 제안 시 현재 업무의 불편, 사용 중인 도구, 원하는 결과를 간단히 알려 주세요. 민감한 개인정보나 내부 자료는 문의 단계에서 보내지 않아도 됩니다.',pinned:false,category:'NOTICE'}
+];
+const blogPosts=[
+ {id:'b1',date:'2026.10.12',category:'WORKFLOW',title:'자동화는 코드를 쓰기 전에 시작된다',excerpt:'반복 업무를 정확히 정의하면 필요한 도구와 개선 범위가 선명해집니다.',body:'<p>자동화의 시작은 코드를 작성하는 순간이 아닙니다. 누가, 언제, 어떤 자료를 받아, 어떤 결과를 만들어야 하는지 흐름을 관찰하는 데서 시작합니다.</p><h3>먼저 흐름을 적습니다</h3><p>입력과 출력, 반복되는 판단, 예외 상황을 분리해 적으면 사람이 계속 판단해야 하는 부분과 자동화할 수 있는 부분이 드러납니다.</p><h3>작게 검증합니다</h3><p>한 번에 전체 과정을 바꾸기보다 가장 반복적인 한 단계를 먼저 개선합니다. 작업 시간과 오류 여부를 확인한 뒤 다음 단계로 넓혀 갑니다.</p>'},
+ {id:'b2',date:'2026.10.08',category:'AUTOMATION',title:'작은 스크립트가 바꾸는 하루',excerpt:'파일명 정리와 데이터 변환처럼 작아 보이는 일부터 개선할 수 있습니다.',body:'<p>작은 자동화는 화려하지 않아도 매일 반복되는 수고를 줄일 수 있습니다. 중요한 것은 기능의 크기가 아니라 실제로 반복되는 빈도와 실수 가능성입니다.</p><h3>기준을 정하고 기록합니다</h3><p>어떤 파일을 대상으로 할지, 결과물은 어디에 둘지, 오류가 발생하면 어떻게 알릴지 먼저 정합니다. 자동화 전후를 기록하면 개선 효과도 설명할 수 있습니다.</p>'},
+ {id:'b3',date:'2026.10.03',category:'PUBLIC SERVICE',title:'공공 업무를 위한 자동화의 기준',excerpt:'효율만큼이나 권한, 개인정보, 유지보수 가능성을 고려해야 합니다.',body:'<p>공공 업무의 자동화는 속도만으로 평가하기 어렵습니다. 정보 접근 권한, 개인정보 처리, 기록 보존, 담당자 변경 이후의 유지보수까지 함께 고려해야 합니다.</p><h3>사람의 확인이 필요한 구간</h3><p>민감한 판단이나 최종 승인 과정은 무조건 자동화하기보다 사람이 확인할 수 있도록 설계하는 편이 안전합니다. 자동화의 범위와 한계를 분명히 설명하는 것이 신뢰의 출발점입니다.</p>'},
+ {id:'b4',date:'2026.09.28',category:'PROCESS',title:'좋은 업무 문서는 다음 행동을 알려준다',excerpt:'읽는 사람이 바로 이해하고 움직일 수 있도록 정보를 구조화합니다.',body:'<p>문서는 정보를 쌓아 두는 곳을 넘어 다음 행동을 돕는 도구입니다. 목적, 담당자, 순서, 완료 기준을 눈에 띄게 정리하면 전달 과정의 혼선을 줄일 수 있습니다.</p><h3>짧고 일관되게</h3><p>제목과 항목의 이름을 통일하고, 한 문장에는 한 가지 행동만 담습니다. 문서가 실제로 쓰이는 상황을 기준으로 계속 개선합니다.</p>'}
+];
+let state={notices:defaultNotices.map(n=>({...n})),members:[
+ {name:'Yujeong Je',email:'admin@example.com',role:'admin'},
+ {name:'Demo Member',email:'member@example.com',role:'member'},
+ {name:'Portfolio Guest',email:'guest@example.com',role:'member'}
+],user:null,customUsers:[]};
+let previousPage='home';
+function safeLoad(){
+ try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(parsed&&Array.isArray(parsed.notices)&&Array.isArray(parsed.members)){state={...state,...parsed};}}}catch(e){console.warn('데모 저장 데이터를 불러오지 못했습니다. 기본값으로 시작합니다.');}
+}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){toast('브라우저 저장 공간을 사용할 수 없습니다. 현재 화면에서만 유지됩니다.');}}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+let toastTimer;
+function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600);}
+function setPage(name,opts={}){
+ const target=$('#page-'+name);if(!target){toast('해당 화면은 준비 중입니다.');return;}
+ const active=$('.page.active');if(active&&active.dataset.pageName!=='article')previousPage=active.dataset.pageName;
+ $$('.page').forEach(p=>p.classList.toggle('active',p===target));
+ $$('.nav-links button').forEach(b=>{if(b.dataset.page)b.setAttribute('aria-current',b.dataset.page===name?'page':'false');});
+ $('#navLinks').classList.remove('open');$('#menuToggle').setAttribute('aria-expanded','false');
+ if(name==='article'&&opts.article)renderArticle(opts.article);
+ window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+ if(name==='home'||name==='news')renderNotices();
+}
+function openArticle(id,kind){
+ const item=kind==='notice'?state.notices.find(n=>n.id===id):blogPosts.find(p=>p.id===id);
+ if(!item){toast('해당 글을 찾을 수 없습니다.');return;}
+ setPage('article',{article:{...item,kind}});
+}
+function renderArticle(item){
+ $('#articleCategory').textContent=item.category|| (item.kind==='notice'?'NOTICE':'JOURNAL');
+ $('#articleTitle').textContent=item.title;
+ $('#articleDate').textContent=item.date||'';
+ const body=$('#articleBody');
+ if(item.kind==='notice'){
+   body.innerHTML='<p>'+escapeHTML(item.body).replace(/\n/g,'</p><p>')+'</p>';
+ }else{body.innerHTML=item.body||'<p>상세 내용이 준비 중입니다.</p>';}
+}
+function sortedNotices(){return [...state.notices].sort((a,b)=>(Number(b.pinned)-Number(a.pinned))||b.date.localeCompare(a.date));}
+function noticeMarkup(n){return `<div class="notice-row"><span class="date">${escapeHTML(n.date)}</span><button data-notice="${escapeHTML(n.id)}">${n.pinned?'<span class="pinned">PINNED</span>':''}${escapeHTML(n.title)}</button><span class="tag">${escapeHTML(n.category||'NOTICE')}</span></div>`;}
+function renderNotices(){
+ const notices=sortedNotices();
+ $('#homeNotices').innerHTML=notices.slice(0,3).map(noticeMarkup).join('');
+ $('#allNotices').innerHTML=notices.map(noticeMarkup).join('');
+ $('#blogGrid').innerHTML=blogPosts.map(p=>`<article class="blog-card"><div class="visual" data-label="${escapeHTML(p.category)} · 16:10"></div><p class="date">${escapeHTML(p.date)} · ${escapeHTML(p.category)}</p><h3>${escapeHTML(p.title)}</h3><p>${escapeHTML(p.excerpt)}</p><button class="text-link" data-blog="${escapeHTML(p.id)}">글 읽기 <svg viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></article>`).join('');
+ updateMemberUI();setupReveal();
+}
+function openModal(){ $('#accountModal').classList.add('open');updateMemberUI(); }
+function closeModal(){ $('#accountModal').classList.remove('open'); }
+function updateMemberUI(){
+ const logged=!!state.user;
+ $('#accountButton').title=logged?'계정: '+state.user.name:'로그인 및 회원가입';
+ $('#memberStatus').textContent=logged?`${state.user.name}님, 데모 계정으로 로그인되어 있습니다.`:'로그인하면 회원 전용 안내와 공지 관리 데모를 확인할 수 있습니다.';
+ $('#adminTools').classList.toggle('hidden',!(logged&&state.user.role==='admin'));
+ $('#loginOpen').textContent=logged?'계정 정보 보기':'로그인 / 체험 계정';
+ $('#signupOpen').classList.toggle('hidden',logged);
+ $('#authForms').classList.toggle('hidden',logged);
+ $('#loggedInView').classList.toggle('hidden',!logged);
+ if(logged)$('#loggedInText').textContent=`${state.user.name}님으로 로그인했습니다. 권한: ${state.user.role==='admin'?'관리자 데모':'회원'}.`;
+}
+function demoLogin(){state.user={name:'Yujeong Je (체험 계정)',email:'admin@example.com',role:'admin'};save();updateMemberUI();closeModal();toast('체험 계정으로 로그인했습니다.');}
+function logout(){state.user=null;save();updateMemberUI();closeModal();toast('로그아웃했습니다.');}
+function resetDemo(){state={notices:defaultNotices.map(n=>({...n})),members:[
+ {name:'Yujeong Je',email:'admin@example.com',role:'admin'},
+ {name:'Demo Member',email:'member@example.com',role:'member'},
+ {name:'Portfolio Guest',email:'guest@example.com',role:'member'}
+],user:null,customUsers:[]};save();renderNotices();toast('데모 데이터를 초기 상태로 복구했습니다.');}
+function searchItems(query){
+ const q=query.trim().toLocaleLowerCase();if(!q)return [];
+ const all=[...state.notices.map(n=>({id:n.id,kind:'notice',title:n.title,sub:'공지 · '+n.date})),...blogPosts.map(p=>({id:p.id,kind:'blog',title:p.title,sub:'블로그 · '+p.date}))];
+ return all.filter(x=>(x.title+' '+x.sub).toLocaleLowerCase().includes(q)).slice(0,8);
+}
+function renderSearch(){
+ const input=$('#siteSearch'),box=$('#searchResults');const q=input.value;
+ if(!q.trim()){box.classList.remove('open');box.innerHTML='';return;}
+ const items=searchItems(q);
+ box.innerHTML=items.length?items.map(x=>`<button class="search-result" data-search-kind="${x.kind}" data-search-id="${escapeHTML(x.id)}">${escapeHTML(x.title)}<small>${escapeHTML(x.sub)}</small></button>`).join(''):'<div class="search-result">검색 결과가 없습니다.</div>';
+ box.classList.add('open');
+}
+function setupReveal(){
+ const els=$$('.reveal:not([data-reveal-ready])');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('visible'));return;}
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});
+ els.forEach(el=>{el.dataset.revealReady='1';observer.observe(el);});
+}
+function setTheme(theme){document.body.classList.toggle('dark',theme==='dark');try{localStorage.setItem('yjTheme',theme);}catch(e){}}
+try{setTheme(localStorage.getItem('yjTheme')||'light');}catch(e){setTheme('light');}
+safeLoad();
+renderNotices();
+$$('[data-page]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();setPage(el.dataset.page);}));
+$$('[data-back]').forEach(el=>el.addEventListener('click',()=>setPage(previousPage==='article'?'news':previousPage||'home')));
+document.addEventListener('click',e=>{
+ const n=e.target.closest('[data-notice]');if(n){openArticle(n.dataset.notice,'notice');return;}
+ const b=e.target.closest('[data-blog]');if(b){openArticle(b.dataset.blog,'blog');return;}
+ const s=e.target.closest('[data-search-id]');if(s){$('#searchResults').classList.remove('open');$('#siteSearch').value='';openArticle(s.dataset.searchId,s.dataset.searchKind);return;}
+});
+$('#themeToggle').addEventListener('click',()=>{const dark=!document.body.classList.contains('dark');setTheme(dark?'dark':'light');toast(dark?'다크 모드로 전환했습니다.':'라이트 모드로 전환했습니다.');});
+$('#menuToggle').addEventListener('click',()=>{const open=$('#navLinks').classList.toggle('open');$('#menuToggle').setAttribute('aria-expanded',String(open));});
+$('#accountButton').addEventListener('click',openModal);
+$('#loginOpen').addEventListener('click',openModal);
+$('#signupOpen').addEventListener('click',()=>{openModal();$('#loginForm').classList.add('hidden');$('#signupForm').classList.remove('hidden');});
+$$('[data-close-modal]').forEach(b=>b.addEventListener('click',closeModal));
+$('#accountModal').addEventListener('click',e=>{if(e.target===$('#accountModal'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();$('#searchResults').classList.remove('open');$('#navLinks').classList.remove('open');}});
+$('#demoLogin').addEventListener('click',demoLogin);
+$('#modalLogout').addEventListener('click',logout);
+$('#logoutButton').addEventListener('click',logout);
+$('#showSignup').addEventListener('click',()=>{$('#loginForm').classList.add('hidden');$('#signupForm').classList.remove('hidden');});
+$('#showLogin').addEventListener('click',()=>{$('#signupForm').classList.add('hidden');$('#loginForm').classList.remove('hidden');});
+$('#loginForm').addEventListener('submit',e=>{
+ e.preventDefault();const email=$('#loginId').value.trim();const user=[...state.members,...state.customUsers].find(m=>m.email.toLowerCase()===email.toLowerCase());
+ if(!user){toast('데모 계정이 없습니다. 체험 계정 자동 로그인을 이용해 주세요.');return;}
+ state.user={name:user.name,email:user.email,role:user.role||'member'};save();updateMemberUI();closeModal();toast('로그인했습니다.');
+});
+$('#signupForm').addEventListener('submit',e=>{
+ e.preventDefault();const name=$('#signupName').value.trim(),email=$('#signupEmail').value.trim(),pw=$('#signupPw').value;
+ if([...state.members,...state.customUsers].some(m=>m.email.toLowerCase()===email.toLowerCase())){toast('이미 등록된 이메일입니다.');return;}
+ const user={name,email,role:'member',demoPassword:pw};state.customUsers.push(user);state.members.push({name,email,role:'member'});state.user={name,email,role:'member'};save();e.target.reset();updateMemberUI();closeModal();toast('데모 회원가입이 완료되었습니다.');
+});
+$('#siteSearch').addEventListener('input',renderSearch);
+$('#siteSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const first=$('.search-result[data-search-id]');if(first)first.click();}});
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))$('#searchResults').classList.remove('open');});
+$('#resetDemo').addEventListener('click',resetDemo);$('#resetDemo2').addEventListener('click',resetDemo);
+$('#addNotice').addEventListener('click',()=>{
+ if(!(state.user&&state.user.role==='admin')){toast('체험 계정으로 로그인해 주세요.');return;}
+ const title=$('#newNoticeTitle').value.trim(),body=$('#newNoticeBody').value.trim();
+ if(!title||!body){toast('공지 제목과 내용을 모두 입력해 주세요.');return;}
+ const pinned=$('#pinNotice').checked;
+ if(pinned)state.notices.forEach(n=>n.pinned=false);
+ state.notices.push({id:'n'+Date.now(),date:new Date().toLocaleDateString('sv-SE').replace(/-/g,'.'),title,body,pinned,category:pinned?'CAREER':'NOTICE'});
+ $('#newNoticeTitle').value='';$('#newNoticeBody').value='';$('#pinNotice').checked=false;save();renderNotices();toast('공지 데모를 등록했습니다.');
+});
+$('#emailApply').addEventListener('click',()=>{location.href='mailto:esabelllla0618@gmail.com?subject='+encodeURIComponent('[협업 제안] Yujeong Je Portfolio')+'&body='+encodeURIComponent('관심 분야: \n해결하고 싶은 업무 문제: \n현재 사용 중인 도구: \n');});
+$$('.apply-btn').forEach(btn=>btn.addEventListener('click',()=>{location.href='mailto:esabelllla0618@gmail.com?subject='+encodeURIComponent('[협업 문의] '+btn.dataset.role)+'&body='+encodeURIComponent('관심 분야: '+btn.dataset.role+'\n해결하고 싶은 문제: \n');}));
+$('#contactButton').addEventListener('click',e=>{const href=$('#contactButton').getAttribute('href');if(href.includes('_YOUR_CHANNEL')){e.preventDefault();toast('카카오톡 채널 URL을 실제 주소로 교체해 주세요.');}});
+setupReveal();
+})();
+</script>
+</body>
+</html>
